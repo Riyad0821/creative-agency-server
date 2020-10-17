@@ -22,16 +22,7 @@ client.connect(err => {
     const ordersCollection = client.db("creativeAgency").collection("ordersCol");
     const feedbacksCollection = client.db("creativeAgency").collection("feedbacks");
     const adminsCollection = client.db("creativeAgency").collection("admins");
-    //   const registrationsCollection = client.db("volunteerNetwork").collection("registrations");
-
-    // app.post('/addServices', (req, res) => {
-    //     const services = req.body;
-    //     servicesCollection.insertMany(services)
-    //         .then(result => {
-    //             console.log(result.insertedCount);
-    //             res.send(result.insertedCount);
-    //         })
-    // })
+    
     app.post('/addFeedbacks', (req, res) => {
         const feedbacks = req.body;
         feedbacksCollection.insertMany(feedbacks)
@@ -40,13 +31,6 @@ client.connect(err => {
                 res.send(result.insertedCount);
             })
     })
-    // app.post('/addSingleReview', (req, res) => {
-    //     const review = req.body;
-    //     feedbacksCollection.insertOne(review)
-    //       .then(result => {
-    //         res.send(result.insertedCount > 0)
-    //       })
-    //   })
 
     app.get('/services', (req, res) => {
         servicesCollection.find({})
